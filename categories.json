@@ -1,0 +1,123 @@
+{
+  "categories": {
+    "geodata": {
+      "title": "Географические данные",
+      "description": "Разные карты местности",
+      "filters": {
+        "text_search": {
+          "description": "Поиск по тексту",
+          "type": "full_text",
+          "fields": [
+            "name",
+            "description"
+          ]
+        },
+        "bbox": {
+          "type": "geo_bounding_box",
+          "description": "Фильтр по географической области",
+          "fields": [
+            "location"
+          ]
+        },
+        "date": {
+          "type": "date_range",
+          "description": "Фильтр по дате",
+          "fields": [
+            "created_at"
+          ]
+        },
+        "type": {
+          "type": "term",
+          "description": "Тип геоданных",
+          "fields": [
+            "map_type"
+          ],
+          "values": {
+            "raster": "Растовое",
+            "vector": "Векторное",
+            "topo": "Топо"
+          }
+        }
+      }
+    },
+    "tasks": {
+      "title": "Задачи",
+      "description": "Разные рабочие задачи",
+      "filters": {
+        "text_search": {
+          "type": "full_text",
+          "description": "Поиск по тексту",
+          "fields": [
+            "name",
+            "description"
+          ]
+        },
+        "status": {
+          "type": "term",
+          "description": "Статус задачи",
+          "fields": [
+            "status"
+          ],
+          "values": {
+            "open": "Открыто",
+            "in_progress": "В процессе",
+            "done": "Завершенно"
+          }
+        },
+        "priority": {
+          "type": "range",
+          "description": "Приоритет задачи",
+          "fields": [
+            "priority"
+          ],
+          "min": 1,
+          "max": 5
+        },
+        "created": {
+          "type": "date_range",
+          "description": "Дата создания",
+          "fields": [
+            "created_at"
+          ]
+        }
+      }
+    },
+    "collections-files": {
+      "title": "Файлы из коллекций",
+      "description": "Файлы которые были индексированы",
+      "filters": {
+        "text_search": {
+          "type": "full_text",
+          "description": "Поиск по тексту",
+          "fields": [
+            "name",
+            "format",
+            "path",
+            "other_text"
+          ]
+        },
+        "size": {
+          "type": "range",
+          "description": "Размер файла",
+          "fields": [
+            "size"
+          ],
+          "min": 0,
+          "max": 1000000000
+        },
+        "last_modified": {
+          "type": "date_range",
+          "description": "Последнее изменение",
+          "fields": [
+            "last_modified"
+          ]
+        },
+        "geo_distance": {
+          "type": "geo_distance",
+          "description": "Расстояние от точки на карте",
+          "fields": ["location"]
+        }
+      }
+    }
+  }
+}
