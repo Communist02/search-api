@@ -2,10 +2,7 @@ from datetime import datetime
 from sqlalchemy import DATETIME, VARCHAR, Column, BINARY, INT, ForeignKey, TEXT, Index, delete, desc, event, update, func
 from sqlalchemy.orm import DeclarativeBase, Session
 from sqlalchemy import create_engine, select, insert
-import secrets
-import crypt
-import json
-import config
+from config import config
 
 
 class Base(DeclarativeBase):
