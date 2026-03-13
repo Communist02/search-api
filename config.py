@@ -15,6 +15,7 @@ required_fields = [
 
 default_config = {
     'auth_api_url': "http://localhost:8080",
+    # 'auth_api_url': "http://minio-s3-1.eco.dvo.ru:8080",
     'debug_mode': True,
     'opensearch_host': "elastic-1.eco.dvo.ru",
     'opensearch_port': 9200,
